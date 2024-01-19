@@ -45,13 +45,13 @@ module.exports = {
     baseSepolia: {
       url: "https://base-sepolia.blockpi.network/v1/rpc/public",
       chainId: 84532,
-      accounts: [Secrets.privateKey]
+      accounts: [Secrets.privateKey],
     },
     base: {
       url: "https://base.publicnode.com",
       chainId: 8453,
-      accounts: [Secrets.privateKey]
-    }
+      accounts: [Secrets.privateKey],
+    },
   },
   gasReporter: {
     enabled: process.env.REPORT_GAS !== undefined,
@@ -69,18 +69,17 @@ module.exports = {
         chainId: 84531,
         urls: {
           apiURL: "https://api-goerli.basescan.org/api",
-          browserURL: "https://goerli.basescan.org/"
-        }
+          browserURL: "https://goerli.basescan.org/",
+        },
       },
       {
         network: "baseSepolia",
         chainId: 84532,
         urls: {
           apiURL: "https://api-sepolia.basescan.org/api",
-          browserURL: "https://sepolia.basescan.org/"
-        }
-      }
-    ]
-  }
+          browserURL: "https://sepolia.basescan.org/",
+        },
+      },
+    ],
+  },
 };
-

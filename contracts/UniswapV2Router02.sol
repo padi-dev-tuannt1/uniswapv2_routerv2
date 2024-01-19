@@ -60,10 +60,12 @@ contract UniswapV2Router02 is IUniswapV2Router01, Ownable {
         uint deadline
     ) external virtual override ensure(deadline) returns (uint[] memory amounts) {
         uint256 feeSwap = amountIn.mul(fee) / 10000;
-        bool success = IERC20(path[0]).transferFrom(msg.sender, feeRecipient, feeSwap);
-        require(success, 'Fee transfer failed');
+       
         amounts = UniswapV2Library.getAmountsOut(factory, amountIn - feeSwap, path);
         require(amounts[amounts.length - 1] >= amountOutMin, 'UniswapV2Router: INSUFFICIENT_OUTPUT_AMOUNT');
+
+        bool success = IERC20(path[0]).transferFrom(msg.sender, feeRecipient, feeSwap);
+        require(success, 'Fee transfer failed');
         TransferHelper.safeTransferFrom(
             path[0],
             msg.sender,
@@ -125,6 +127,7 @@ contract UniswapV2Router02 is IUniswapV2Router01, Ownable {
 
         uint256 feeSwap = _calculateFeeSwap(amounts[0]);
         require(amounts[0] + feeSwap <= amountInMax, 'UniswapV2Router: EXCESSIVE_INPUT_AMOUNT');
+   
         bool success = IERC20(path[0]).transferFrom(msg.sender, feeRecipient, feeSwap);
         require(success, 'Fee transfer failed');
         TransferHelper.safeTransferFrom(
