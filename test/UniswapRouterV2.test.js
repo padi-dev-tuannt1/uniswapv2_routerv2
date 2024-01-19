@@ -51,13 +51,13 @@ describe('UniswapV2Router02', () => {
     it("Swap token for exact ETH fail if invalid path", async () => {
         const invalidPath = [ethers.constants.AddressZero, "0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984"]; // WETH,UNI
 
-        await expect(uniswapV2RouterV2.swapTokensForExactETH(ethers.utils.parseEther("0.01"), 0, invalidPath, impersonateAddress, ethers.BigNumber.from(9999999999999))).revertedWith("UniswapV2Router: INVALID_PATH")
+        await expect(uniswapV2RouterV2.swapExactTokensForETH(ethers.utils.parseEther("0.01"), 0, invalidPath, impersonateAddress, ethers.BigNumber.from(9999999999999))).revertedWith("UniswapV2Router: INVALID_PATH")
     });
 
     it("Swap token for exact ETH success", async () => {
         const invalidPath = [ethers.constants.AddressZero, "0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984"]; // WETH,UNI
 
-        await expect(uniswapV2RouterV2.swapTokensForExactETH(ethers.utils.parseEther("0.01"), 0, path, impersonateAddress, ethers.BigNumber.from(9999999999999))).revertedWith("UniswapV2Router: INVALID_PATH")
+        await expect(uniswapV2RouterV2.swapExactTokensForETH(ethers.utils.parseEther("0.01"), 0, path, impersonateAddress, ethers.BigNumber.from(9999999999999))).revertedWith("UniswapV2Router: INVALID_PATH")
     });
 
 
