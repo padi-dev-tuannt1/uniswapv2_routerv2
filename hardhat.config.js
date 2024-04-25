@@ -47,6 +47,16 @@ module.exports = {
       chainId: 84532,
       accounts: [Secrets.privateKey],
     },
+    bscTest: {
+      url: "https://data-seed-prebsc-1-s2.bnbchain.org:8545",
+      chainId: 97,
+      accounts: [Secrets.privateKey]
+    },
+    bsc: {
+      url: "https://bsc-dataseed1.ninicoin.io",
+      chainId: 56,
+      accounts: [Secrets.privateKey]
+    },
     base: {
       url: "https://base.publicnode.com",
       chainId: 8453,
@@ -59,6 +69,8 @@ module.exports = {
   },
   etherscan: {
     apiKey: {
+      bsc: "HRDD2XSSZD9K4EZRSDDMSDWWXUT8V3RDU7",
+      bscTestnet: 'HRDD2XSSZD9K4EZRSDDMSDWWXUT8V3RDU7',
       goerli: "FVG97R76QVSXEMNHT19TCCUQSZSW2HY6F7",
       baseGoerli: Secrets.explorer_key.BASE,
       baseSepolia: Secrets.explorer_key.BASE,
